@@ -142,6 +142,9 @@ include_directories(
 add_executable(video_sender_node src/video_sender_node.cpp src/ImageConverter.cpp)
 add_executable(video_receiver_node src/video_receiver_node.cpp src/ImageConverter.cpp)
 
+add_executable(compressed_video_sender_node src/compressed_video_sender_node.cpp src/ImageConverter.cpp)
+add_executable(compressed_video_receiver_node src/compressed_video_receiver_node.cpp src/ImageConverter.cpp)
+
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -163,6 +166,16 @@ target_link_libraries(video_receiver_node
   ${OpenCV_LIBS}
 )
 
+
+target_link_libraries(compressed_video_sender_node
+  ${catkin_LIBRARIES}
+  ${OpenCV_LIBS}
+)
+
+target_link_libraries(compressed_video_receiver_node
+  ${catkin_LIBRARIES}
+  ${OpenCV_LIBS}
+)
 
 #############
 ## Install ##
